@@ -1,9 +1,24 @@
 @use "./variables" as *
 
+// Global styles
+
 *, *:before, *:after
   margin: 0
   padding: 0
   box-sizing: border-box
+
+html, body, #app
+  min-height: 100vh
+
+body
+  background-color: $bg-base
+  color: $text-primary
+  font-size: nth($font-sizes, 4)
+
+#app
+  display: flex
+  justify-content: center
+  align-items: center
 
 @for $i from 1 through length($font-sizes)
   h#{$i}, .h#{$i}
