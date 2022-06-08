@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section ref="messages">
     <Message
       v-for="i in 10"
       :key="i"
@@ -12,6 +12,15 @@
 
 <script setup>
 import Message from "@/components/Message.vue";
+import { onMounted, onUpdated, ref } from "vue";
+const messages = ref();
+
+function scrollBottom() {
+  messages.value.scrollTo(0, messages.value.scrollHeight);
+};
+
+onMounted(scrollBottom);
+onUpdated(scrollBottom);
 </script>
 
 <style lang="sass" scoped>
@@ -22,4 +31,9 @@ import Message from "@/components/Message.vue";
     height: 60vh
     max-height: 60vh
     overflow-y: scroll
+    scroll-behavior: smooth
+
+    &::-webkit-scrollbar
+      display: none
+
 </style>
