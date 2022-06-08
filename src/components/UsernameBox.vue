@@ -16,6 +16,7 @@ import { ref } from "vue";
 
 const username = ref("");
 const store = useMessagesStore();
+defineEmits(["close"]);
 </script>
 
 <style lang="sass" scoped>

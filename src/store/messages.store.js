@@ -1,9 +1,10 @@
 import { defineStore } from "pinia";
-
+import { SERVER_URL } from "../config/config";
 export const useMessagesStore = defineStore("messages", {
   state: () => ({
     messages: [],
-    username: "test"
+    username: "test",
+    socket: new WebSocket(SERVER_URL)
   }),
 
   actions: {
@@ -14,6 +15,7 @@ export const useMessagesStore = defineStore("messages", {
 
     async submitUsername(username) {
       if (!username.trim()) return;
+
       this.username = username.trim();
       return true;
     }
