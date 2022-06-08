@@ -1,14 +1,23 @@
 import { WebSocketServer } from "ws";
 import { PORT } from "./config.js";
+import express from "express";
+import http from "http";
 
-const server = new WebSocketServer({
-  port: PORT,
+// Static file serve
+const app = express();
+const server = http.createServer(app);
+app.use(express.static("dist"));
+
+server.listen(PORT);
+
+const wsServer = new WebSocketServer({
+  server,
   path: "/messages"
 });
 
 const connections = [];
 
-server.on("connection", socket => {
+wsServer.on("connection", socket => {
   connections.push(socket);
 
   socket.on("message", function message(data) {
