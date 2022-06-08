@@ -1,6 +1,12 @@
 <template>
   <section>
-    <Message v-for="i in 10" :key="i" text="test" differentSender />
+    <Message
+      v-for="i in 10"
+      :key="i"
+      text="test"
+      sender="testUser"
+      differentSender
+    />
   </section>
 </template>
 

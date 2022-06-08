@@ -1,6 +1,7 @@
 <template>
   <div :class="'h5 message ' + (differentSender ? 'bg-accent' : 'bg-primary align-right')">
-    {{ text }}
+    <div class="text-secondary h6 bold">{{ sender }}</div>
+    <div>{{ text }}</div>
   </div>
 </template>
 
@@ -14,6 +15,11 @@ defineProps({
   differentSender: {
     type: Boolean,
     required: true
+  },
+
+  sender: {
+    type: String,
+    required: true
   }
 });
 </script>
@@ -23,8 +29,9 @@ defineProps({
     max-width: 100%
     border-radius: .2em
     overflow-wrap: break-word
-    padding: .5em 1em
-    margin: .3em
+    padding: .5em .75em
+    margin: .3em 0
+    line-height: 1em
 
   .align-right
     margin-left: 100%
