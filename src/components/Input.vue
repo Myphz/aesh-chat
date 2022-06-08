@@ -23,6 +23,7 @@ defineExpose({ reset });
 <style lang="sass" scoped>
   input
     color: black
+    border: 2px solid $primary
     background-color: $bg-input
     border-radius: .25em
     padding: .5em
