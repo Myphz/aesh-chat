@@ -16,7 +16,10 @@ import Message from "@/components/Message.vue";
 
 <style lang="sass" scoped>
   section
-    width: 50vw
+    width: 100%
     display: flex
     flex-direction: column
+    height: 60vh
+    max-height: 60vh
+    overflow-y: scroll
 </style>

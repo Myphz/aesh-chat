@@ -1,6 +1,6 @@
 <template>
-  <div :class="'h5 message ' + (differentSender ? 'bg-accent' : 'bg-primary align-right')">
-    <div class="text-secondary h6 bold">{{ sender }}</div>
+  <div :class="'message ' + (differentSender ? 'bg-accent' : 'bg-primary align-right')">
+    <div class="text-secondary h3 bold">{{ sender }}</div>
     <div>{{ text }}</div>
   </div>
 </template>
@@ -32,6 +32,7 @@ defineProps({
     padding: .5em .75em
     margin: .3em 0
     line-height: 1em
+    width: fit-content
 
   .align-right
     margin-left: 100%
