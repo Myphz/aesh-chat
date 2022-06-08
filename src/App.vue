@@ -1,4 +1,5 @@
 <template>
+  <span class="h1 title">Aesh Chat</span>
   <UsernameBox v-if="openBox" @close="openBox = false"/>
   <Messages />
   <form class="controls" @submit.prevent="() => { store.sendMessage(message); message=''; input.reset() }">
@@ -31,4 +32,7 @@ const openBox = ref(true);
     justify-content: space-between
     width: 100%
     margin-top: 4em
+
+  .title
+    color: $primary
 </style>
