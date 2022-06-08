@@ -8,6 +8,7 @@ export const useMessagesStore = defineStore("messages", {
 
   actions: {
     async sendMessage(message) {
+      if (!message) return;
       this.messages.push({ username: this.username, message });
     }
   }

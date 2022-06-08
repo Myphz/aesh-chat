@@ -1,8 +1,8 @@
 <template>
  <Messages />
  <main>
-   <Input v-model="message" />
-   <SendButton :message="message" />
+   <Input v-model="message" ref="input" />
+   <SendButton :message="message" @click.native="() => { message = ''; input.reset() }" />
  </main>
 </template>
 
@@ -13,6 +13,7 @@ import SendButton from "@/components/SendButton.vue";
 import { ref } from "vue";
 
 const message = ref("");
+const input = ref();
 </script>
 
 <style lang="sass">

@@ -4,8 +4,21 @@
     @input="$emit('update:modelValue', $event.target.value)"
     spellcheck="false"
     autocapitalize="none"
+    ref="input"
   >
 </template>
+
+<script setup>
+import { ref } from 'vue';
+
+const input = ref();
+
+function reset() {
+  input.value.value = "";
+}
+
+defineExpose({ reset });
+</script>
 
 <style lang="sass" scoped>
   input
