@@ -16,6 +16,7 @@ import { useMessagesStore } from "@/store/messages.store"
 import { ref } from "vue";
 
 const store = useMessagesStore();
+store.initializeSocket();
 
 const message = ref("");
 const input = ref();
