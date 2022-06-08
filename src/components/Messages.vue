@@ -1,11 +1,11 @@
 <template>
   <section ref="messages">
     <Message
-      v-for="i in 10"
+      v-for="(message, i) in store.messages"
       :key="i"
-      text="test"
-      sender="testUser"
-      differentSender
+      :text="message.message"
+      :sender="message.username"
+      :differentSender="message.username !== store.username"
     />
   </section>
 </template>
@@ -13,6 +13,9 @@
 <script setup>
 import Message from "@/components/Message.vue";
 import { onMounted, onUpdated, ref } from "vue";
+import { useMessagesStore } from "@/store/messages.store";
+
+const store = useMessagesStore();
 const messages = ref();
 
 function scrollBottom() {
@@ -25,13 +28,12 @@ onUpdated(scrollBottom);
 
 <style lang="sass" scoped>
   section
-    width: 100%
     display: flex
     flex-direction: column
+    width: 100%
     height: 60vh
     max-height: 60vh
     overflow-y: scroll
-    scroll-behavior: smooth
 
     &::-webkit-scrollbar
       display: none

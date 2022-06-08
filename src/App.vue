@@ -1,9 +1,9 @@
 <template>
  <Messages />
- <section>
+ <main>
    <Input v-model="message" />
    <SendButton :message="message" />
- </section>
+ </main>
 </template>
 
 <script setup>
@@ -12,15 +12,13 @@ import Input from "@/components/Input.vue";
 import SendButton from "@/components/SendButton.vue";
 import { ref } from "vue";
 
-const message = ref();
+const message = ref("");
 </script>
 
 <style lang="sass">
   @use "@/assets/sass/_utilities.sass" as *
-</style>
 
-<style scoped lang="sass">
-  section
+  main
     display: flex
     justify-content: space-between
     width: 100%

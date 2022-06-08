@@ -1,6 +1,6 @@
 <template>
   <div :class="'message ' + (differentSender ? 'bg-accent' : 'bg-primary align-right')">
-    <div class="text-secondary h3 bold">{{ sender }}</div>
+    <div :class="'h3 bold ' + (differentSender ? 'text-author-diff' : 'text-author-same')">{{ sender }}</div>
     <div>{{ text }}</div>
   </div>
 </template>
@@ -35,6 +35,12 @@ defineProps({
     width: fit-content
 
   .align-right
-    margin-left: 100%
+    align-self: flex-end
+
+  .text-author-diff
+    color: lighten($accent, 30%)
+
+  .text-author-same
+    color: lighten($primary, 30%)
 
 </style>
