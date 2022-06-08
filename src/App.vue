@@ -1,7 +1,7 @@
 <template>
   <UsernameBox v-if="openBox" @close="openBox = false"/>
   <Messages />
-  <form class="controls" @submit.prevent="() => { store.sendMessage(message); input.reset() }">
+  <form class="controls" @submit.prevent="() => { store.sendMessage(message); message=''; input.reset() }">
     <Input v-model="message" ref="input" />
     <SendButton />
   </form>

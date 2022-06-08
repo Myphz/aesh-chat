@@ -2,8 +2,10 @@
   <div class="bg"></div>
   <section>
     <div class="h1">Enter your username</div>
-    <Input v-model="username" />
-    <button class="h2" @click="() => store.submitUsername(username) && $emit('close')">Continue</button>
+    <form @submit.prevent="() => store.submitUsername(username) && $emit('close')">
+      <Input v-model="username" />
+      <button type="submit" class="h2">Continue</button>
+    </form>
   </section>
 </template>
 
@@ -38,14 +40,21 @@ const store = useMessagesStore();
     align-items: center
     z-index: 2
 
-    input
-      margin: 1em 0
-      width: 50%
+    form
+      width: 100%
+      display: flex
+      justify-content: center
+      align-items: center
+      flex-direction: column
 
-    button
-      background-color: $primary
-      padding: 1em
-      border-radius: .5em
-      cursor: pointer
+      input
+        margin: 1em 0
+        width: 50%
+
+      button
+        background-color: $primary
+        padding: 1em
+        border-radius: .5em
+        cursor: pointer
 
 </style>
