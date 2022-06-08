@@ -1,11 +1,11 @@
 <template>
-  <div class="h5 message">
+  <div :class="'h5 message ' + (differentSender ? 'bg-accent' : 'bg-primary align-right')">
     {{ text }}
   </div>
 </template>
 
 <script setup>
-const { text } = defineProps({
+defineProps({
   text: {
     type: String,
     required: true
@@ -21,10 +21,12 @@ const { text } = defineProps({
 <style lang="sass" scoped>
   .message
     max-width: 100%
-    background-color: $accent
     border-radius: .2em
     overflow-wrap: break-word
     padding: .5em 1em
     margin: .3em
+
+  .align-right
+    margin-left: 100%
 
 </style>
